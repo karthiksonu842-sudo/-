@@ -1,0 +1,537 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-cinzel: "Cinzel", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --color-burgundy: #4A0F12;
+  --color-maroon: #2B0709;
+  --color-gold: #F4C928;
+  --color-gold-hover: #E5B81B;
+  --color-gold-muted: rgba(244, 201, 40, 0.2);
+  --color-cream: #FFF4D6;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    font-family: var(--font-sans);
+  }
+
+  /* Custom luxury scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #1e0507;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #4A0F12;
+    border-radius: 4px;
+    border: 1px solid rgba(244, 201, 40, 0.25);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #F4C928;
+  }
+}
+
+/* Luxury card gold border sheen */
+.gold-gradient-border {
+  border: 1px solid rgba(244, 201, 40, 0.35);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gold-gradient-border:hover {
+  border-color: rgba(244, 201, 40, 0.85);
+  box-shadow: 0 10px 30px -10px rgba(244, 201, 40, 0.2);
+}
+
+/* Luxury dark shimmer skeleton */
+@keyframes luxuryShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-luxury-shimmer {
+  background: linear-gradient(
+    90deg,
+    #200406 0%,
+    #33080b 20%,
+    #450e12 50%,
+    #33080b 80%,
+    #200406 100%
+  );
+  background-size: 200% 100%;
+  animation: luxuryShimmer 2.2s infinite ease-in-out;
+}
+
+/* Subtle image zoom container */
+.img-zoom-container {
+  overflow: hidden;
+}
+.img-zoom-container img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.img-zoom-container:hover img {
+  transform: scale(1.06);
+}
+
+/* ==========================================================================
+   INSTANT THEME TRANSITION OPTIMIZATION
+   Disables layout thrashing and repainting stutter during instant theme switch
+   ========================================================================== */
+.theme-switching,
+.theme-switching *,
+.theme-switching *::before,
+.theme-switching *::after {
+  transition: none !important;
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  scroll-behavior: auto !important;
+}
+
+/* ==========================================================================
+   HIGH-CONTRAST LIGHT THEME
+   Engineered for optimal readability, WCAG compliance, and brand harmony
+   ========================================================================== */
+
+html.light-theme,
+[data-theme="light"] {
+  color-scheme: light;
+}
+
+.light-theme {
+  background-color: #F8F6F1 !important;
+  color: #1A0406 !important;
+}
+
+.light-theme ::-webkit-scrollbar-track {
+  background: #EFECE6;
+}
+
+.light-theme ::-webkit-scrollbar-thumb {
+  background: #B58A22;
+  border: 1px solid #D5C28C;
+}
+
+/* Background surfaces */
+.light-theme .bg-\[\#2B0709\],
+.light-theme .bg-\[\#200406\],
+.light-theme .bg-\[\#1d0305\],
+.light-theme .bg-\[\#1e0507\],
+.light-theme .bg-\[\#190305\] {
+  background-color: #F8F6F1 !important;
+}
+
+/* Card surfaces */
+.light-theme .bg-\[\#33080b\],
+.light-theme .bg-\[\#380b0e\],
+.light-theme .bg-\[\#3b0d10\],
+.light-theme .bg-\[\#350a0d\] {
+  background-color: #FFFFFF !important;
+  box-shadow: 0 4px 20px -2px rgba(43, 7, 9, 0.08), 0 2px 6px -1px rgba(43, 7, 9, 0.04) !important;
+}
+
+.light-theme .hover\:bg-\[\#3d0b0f\]:hover {
+  background-color: #FAF6F0 !important;
+}
+
+/* Wells and inner tags */
+.light-theme .bg-\[\#240507\] {
+  background-color: #F1ECE5 !important;
+}
+
+/* Quick Info strip */
+.light-theme #quick-info > div {
+  background-color: #FFFFFF !important;
+  border-color: rgba(140, 99, 0, 0.3) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08) !important;
+}
+
+.light-theme #quick-info .divide-\[\#F4C928\]\/20 {
+  border-color: rgba(140, 99, 0, 0.15) !important;
+}
+
+.light-theme #quick-info .bg-\[\#2B0709\] {
+  background-color: #F5EEE6 !important;
+  border-color: rgba(140, 99, 0, 0.3) !important;
+}
+
+.light-theme #quick-info .hover\:bg-\[\#5f1317\]\/60:hover {
+  background-color: #FAF6F0 !important;
+}
+
+/* Typography contrast */
+.light-theme .text-white {
+  color: #1A0406 !important;
+}
+
+.light-theme .text-\[\#FFF4D6\] {
+  color: #1A0406 !important;
+}
+
+.light-theme .text-neutral-200 {
+  color: #262626 !important;
+}
+
+.light-theme .text-neutral-300 {
+  color: #383838 !important;
+}
+
+.light-theme .text-neutral-400 {
+  color: #4A4A4A !important;
+}
+
+.light-theme .text-amber-200\/70,
+.light-theme .text-amber-300\/80,
+.light-theme .text-amber-300\/90 {
+  color: #784E00 !important;
+}
+
+/* Deep amber gold for light mode text */
+.light-theme .text-\[\#F4C928\] {
+  color: #8C6300 !important;
+}
+
+/* High contrast inputs and search */
+.light-theme input {
+  background-color: #FFFFFF !important;
+  color: #1A0406 !important;
+  border-color: rgba(140, 99, 0, 0.35) !important;
+}
+
+.light-theme input::placeholder {
+  color: #737373 !important;
+}
+
+/* Light mode category tabs */
+.light-theme .bg-\[\#3b0d10\] {
+  background-color: #EFE9E0 !important;
+  color: #2B0709 !important;
+  border-color: rgba(140, 99, 0, 0.25) !important;
+}
+
+/* Keep text on solid primary buttons crisp & white */
+.light-theme .bg-\[\#4A0F12\] {
+  background-color: #7A1218 !important;
+  color: #FFFFFF !important;
+}
+
+.light-theme .bg-\[\#4A0F12\] .text-white,
+.light-theme .bg-\[\#4A0F12\] .text-\[\#FFF4D6\],
+.light-theme .bg-\[\#7A1218\] .text-white,
+.light-theme .bg-gradient-to-r .text-\[\#2B0709\],
+.light-theme [class*="bg-emerald-"] .text-white,
+.light-theme [class*="bg-red-"] .text-white {
+  color: inherit !important;
+}
+
+.light-theme .bg-\[\#4A0F12\] .text-\[\#F4C928\] {
+  color: #F8DA64 !important;
+}
+
+.light-theme .bg-\[\#4A0F12\] .text-\[\#FFF4D6\] {
+  color: #FFFFFF !important;
+}
+
+/* Borders */
+.light-theme [class*="border-\[\#F4C928\]"] {
+  border-color: rgba(140, 99, 0, 0.25) !important;
+}
+
+/* Fixed Navbar in Light Mode */
+.light-theme header#main-navbar {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-bottom: 1px solid rgba(140, 99, 0, 0.2) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.06) !important;
+}
+
+.light-theme header#main-navbar .text-white {
+  color: #2B0709 !important;
+}
+
+.light-theme header#main-navbar .text-neutral-200 {
+  color: #383838 !important;
+}
+
+.light-theme header#main-navbar .text-neutral-200:hover {
+  color: #8C6300 !important;
+}
+
+.light-theme header#main-navbar #navbar-mobile-toggle {
+  background-color: #F1ECE5 !important;
+  border-color: rgba(140, 99, 0, 0.3) !important;
+  color: #2B0709 !important;
+}
+
+.light-theme #mobile-nav-drawer {
+  background-color: #FFFFFF !important;
+  border-bottom: 1px solid rgba(140, 99, 0, 0.25) !important;
+}
+
+.light-theme #mobile-nav-drawer .text-\[\#FFF4D6\] {
+  color: #1A0406 !important;
+}
+
+.light-theme #mobile-bottom-nav {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  border-top: 1px solid rgba(140, 99, 0, 0.2) !important;
+}
+
+.light-theme #mobile-bottom-nav .text-neutral-300 {
+  color: #525252 !important;
+}
+
+/* Hero Section & Parallax text safety over dark photos */
+.light-theme #hero .text-white,
+.light-theme #hero h1,
+.light-theme #hero p,
+.light-theme #hero span.text-white,
+.light-theme #hero span.text-\[\#FFF4D6\] {
+  color: #FFFFFF !important;
+}
+
+.light-theme .food-story-parallax .text-\[\#FFF4D6\],
+.light-theme .food-story-parallax .text-white,
+.light-theme .food-story-parallax .text-neutral-200 {
+  color: #FFFFFF !important;
+}
+
+/* Light theme shimmer */
+.light-theme .animate-luxury-shimmer {
+  background: linear-gradient(
+    90deg,
+    #EFEAE2 0%,
+    #E2DBD0 20%,
+    #D5CDC0 50%,
+    #E2DBD0 80%,
+    #EFEAE2 100%
+  ) !important;
+  background-size: 200% 100% !important;
+}
+
+/* Preserve text contrast on bright gold pills and call-to-action buttons */
+.light-theme .bg-\[\#F4C928\],
+.light-theme [class*="from-\[\#F4C928\]"] {
+  color: #2B0709 !important;
+}
+
+.light-theme .bg-\[\#F4C928\] *,
+.light-theme [class*="from-\[\#F4C928\]"] * {
+  color: #2B0709 !important;
+}
+
+/* Floating Image Badge in Brand Story */
+.light-theme .image-floating-badge {
+  background-color: rgba(30, 4, 6, 0.92) !important;
+}
+
+.light-theme .image-floating-badge,
+.light-theme .image-floating-badge * {
+  color: #FFFFFF !important;
+}
+
+.light-theme .image-floating-badge .text-\[\#F4C928\] {
+  color: #F8DA64 !important;
+}
+
+.light-theme .image-floating-badge .text-neutral-400 {
+  color: #D1D5DB !important;
+}
+
+/* Dining Experience category overlay text over photo cards */
+.light-theme #experience .group .text-\[\#FFF4D6\] {
+  color: #FFFFFF !important;
+}
+
+.light-theme #experience .group .text-neutral-300 {
+  color: #E5E7EB !important;
+}
+
+.light-theme #experience .group .text-\[\#F4C928\] {
+  color: #F4C928 !important;
+}
+
+/* Location Section in Light Mode */
+.light-theme #contact {
+  background-color: #F4F0E8 !important;
+}
+
+.light-theme #contact .bg-\[\#380b0e\] {
+  background-color: #FFFFFF !important;
+  box-shadow: 0 10px 30px -5px rgba(43, 7, 9, 0.08) !important;
+  border-color: rgba(140, 99, 0, 0.25) !important;
+}
+
+.light-theme #contact .bg-\[\#2B0709\] {
+  background-color: #FAF6F0 !important;
+  border-color: rgba(140, 99, 0, 0.3) !important;
+}
+
+.light-theme #contact .bg-\[\#1F0406\]\/95 {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  border-color: rgba(140, 99, 0, 0.25) !important;
+}
+
+.light-theme #contact .bg-\[\#1a0305\] {
+  background-color: #EFEBE4 !important;
+}
+
+/* Subtle Phone Ring Animation for Mobile Call Button */
+@keyframes phoneRing {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  15% {
+    transform: rotate(-14deg) scale(1.06);
+  }
+  30% {
+    transform: rotate(14deg) scale(1.06);
+  }
+  45% {
+    transform: rotate(-10deg) scale(1.03);
+  }
+  60% {
+    transform: rotate(10deg) scale(1.03);
+  }
+  75% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.animate-phone-ring {
+  animation: phoneRing 3.2s infinite ease-in-out;
+  transform-origin: center;
+}
+
+/* Mobile Bottom Bar in Light Theme */
+.light-theme #mobile-bottom-nav {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  border-top-color: rgba(140, 99, 0, 0.25) !important;
+  box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.08) !important;
+}
+
+.light-theme #mobile-bottom-nav a.text-neutral-300 {
+  color: #4B5563 !important;
+}
+
+.light-theme #mobile-bottom-nav a.text-\[\#F4C928\] {
+  color: #8C6300 !important;
+}
+
+.light-theme #mobile-nav-call .text-\[\#2B0709\] {
+  color: #2B0709 !important;
+}
+
+.light-theme #mobile-nav-call .bg-\[\#4A0F12\] {
+  background-color: #2B0709 !important;
+}
+
+.light-theme #mobile-nav-call .text-\[\#FFF4D6\] {
+  color: #FFF4D6 !important;
+}
+
+/* FAQ Section in Light Mode */
+.light-theme #faq {
+  background-color: #FAF7F2 !important;
+}
+
+.light-theme #faq h2 {
+  color: #1A0406 !important;
+}
+
+.light-theme #faq p {
+  color: #4B5563 !important;
+}
+
+.light-theme #faq [id^="faq-tab-"]:not(.bg-\[\#F4C928\]) {
+  background-color: #FFFFFF !important;
+  color: #374151 !important;
+  border-color: rgba(140, 99, 0, 0.2) !important;
+}
+
+.light-theme #faq [id^="faq-item-"] {
+  background-color: #FFFFFF !important;
+  border-color: rgba(140, 99, 0, 0.22) !important;
+  box-shadow: 0 4px 16px rgba(43, 7, 9, 0.04) !important;
+}
+
+.light-theme #faq [id^="faq-item-"]:hover {
+  border-color: rgba(140, 99, 0, 0.45) !important;
+}
+
+.light-theme #faq [id^="faq-item-"] .text-\[\#FFF4D6\] {
+  color: #1A0406 !important;
+}
+
+.light-theme #faq [id^="faq-item-"] .text-\[\#F4C928\] {
+  color: #8C6300 !important;
+}
+
+.light-theme #faq [id^="faq-answer-"] {
+  color: #374151 !important;
+  border-top-color: rgba(140, 99, 0, 0.12) !important;
+}
+
+.light-theme #faq .bg-\[\#380b0e\]\/70 {
+  background-color: #FFFFFF !important;
+  border-color: rgba(140, 99, 0, 0.25) !important;
+  box-shadow: 0 8px 24px rgba(43, 7, 9, 0.06) !important;
+}
+
+.light-theme #faq .bg-\[\#380b0e\]\/70 p {
+  color: #4B5563 !important;
+}
+
+.light-theme #faq .bg-\[\#250406\] {
+  background-color: #F4EFE6 !important;
+  border-color: rgba(140, 99, 0, 0.25) !important;
+}
+
+/* Theme Toggle Glow Transition Keyframes */
+@keyframes goldGlowBurst {
+  0% {
+    box-shadow: 0 0 0 0 rgba(244, 201, 40, 0.8), inset 0 0 0 0 rgba(244, 201, 40, 0.4);
+  }
+  40% {
+    box-shadow: 0 0 24px 6px rgba(244, 201, 40, 0.65), inset 0 0 14px 3px rgba(244, 201, 40, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 6px 1px rgba(244, 201, 40, 0.25), inset 0 0 2px 1px rgba(244, 201, 40, 0.1);
+  }
+}
+
+.animate-gold-glow-burst {
+  animation: goldGlowBurst 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 14s linear infinite;
+}
+
+/* Performance rendering optimizations: skip offscreen card layout/paint */
+.menu-card-item {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 180px;
+}
+
+/* Hardware accelerate sticky and fixed elements to prevent jitter during scroll */
+header#main-navbar,
+#mobile-bottom-nav {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}

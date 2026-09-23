@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sai Datta Restaurant | Muthangi, Patancheru, Hyderabad</title>
+    <meta name="description" content="Sai Datta Restaurant in Muthangi, Patancheru, Hyderabad. Explore biryani, Indian curries, Chinese dishes, vegetarian and non-vegetarian favourites." />
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Sai Datta Restaurant | Authentic Flavours, Freshly Prepared" />
+    <meta property="og:description" content="Discover comforting Indian favourites, aromatic biryanis, flavorful curries and delicious Chinese specialties at Sai Datta Restaurant, Muthangi, Patancheru, Hyderabad." />
+    <meta property="og:type" content="restaurant.restaurant" />
+    <meta property="og:site_name" content="Sai Datta Restaurant" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1589302168068-964664d93dc0?q=80&w=1200&auto=format&fit=crop" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sai Datta Restaurant | Muthangi, Patancheru, Hyderabad" />
+    <meta name="twitter:description" content="Authentic Indian • Chinese • Biryani • Curries. Visit us at Muthangi, Patancheru, Hyderabad or call +91 98668 82999." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1589302168068-964664d93dc0?q=80&w=1200&auto=format&fit=crop" />
+
+    <!-- Google Fonts: Cinzel Decorative, Cormorant Garamond / Playfair Display & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Instant Theme Detection to eliminate flash & lag on reload -->
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('sai_datta_theme_preference');
+          if (saved === 'light') {
+            document.documentElement.classList.add('light-theme', 'light');
+            document.documentElement.setAttribute('data-theme', 'light');
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Restaurant Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Sai Datta Restaurant",
+      "image": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?q=80&w=1200&auto=format&fit=crop",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Muthangi, Patancheru",
+        "addressLocality": "Hyderabad",
+        "addressRegion": "Telangana",
+        "postalCode": "502300",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 17.5255,
+        "longitude": 78.2384
+      },
+      "url": "https://www.google.com/maps/search/?api=1&query=Sai+Datta+Restaurant+Muthangi+Patancheru+Hyderabad+Telangana+502300",
+      "telephone": "+919866882999",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "11:00",
+          "closes": "23:00"
+        }
+      ],
+      "servesCuisine": ["Indian", "Biryani", "Chinese", "Hyderabadi", "Vegetarian", "Non-Vegetarian"],
+      "priceRange": "₹₹",
+      "hasMenu": "#menu",
+      "sameAs": [
+        "https://www.swiggy.com/menu/628163?source=sharing",
+        "https://zomato.onelink.me/xqzv/p2a4e1so"
+      ]
+    }
+    </script>
+  </head>
+  <body class="bg-[#2B0709] text-white selection:bg-[#F4C928] selection:text-[#2B0709] antialiased overflow-x-hidden">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

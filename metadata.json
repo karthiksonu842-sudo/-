@@ -1,0 +1,6 @@
+{
+  "name": "Sai Datta Restaurant",
+  "description": "Premium restaurant website for Sai Datta Restaurant in Muthangi, Patancheru, Hyderabad, featuring authentic Indian, Biryani, Curries, and Chinese specialties.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
